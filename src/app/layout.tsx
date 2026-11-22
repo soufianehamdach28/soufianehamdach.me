@@ -1,6 +1,5 @@
 import { ThemeProvider } from "@/components/theme-provider";
 import LightRaysWrapper from "@/components/ui/light-rays-wrapper";
-import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./exposure-fonts.css";
@@ -192,7 +191,6 @@ export default function RootLayout({
           </div>
           {children}
         </ThemeProvider>
-        <Analytics />
       </body>
     </html>
   );

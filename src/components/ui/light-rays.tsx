@@ -217,10 +217,19 @@ const LightRays: React.FC<LightRaysProps> = ({
 
       if (!containerRef.current) return;
 
-      const renderer = new Renderer({
-        dpr: Math.min(window.devicePixelRatio, 2),
-        alpha: true,
-      });
+      let renderer: Renderer;
+      try {
+        renderer = new Renderer({
+          dpr: Math.min(window.devicePixelRatio, 2),
+          alpha: true,
+        });
+        if (!renderer.gl || !renderer.gl.canvas) {
+          return;
+        }
+      } catch (err) {
+        // Graceful fallback when WebGL context cannot be created (e.g. disabled hardware acceleration)
+        return;
+      }
       rendererRef.current = renderer;
 
       const gl = renderer.gl;
@@ -458,9 +467,9 @@ void main() {
 
         if (renderer) {
           try {
-            const canvas = renderer.gl.canvas;
+            const canvas = renderer.gl?.canvas;
             const loseContextExt =
-              renderer.gl.getExtension("WEBGL_lose_context");
+              renderer.gl?.getExtension("WEBGL_lose_context");
             if (loseContextExt) {
               loseContextExt.loseContext();
             }
