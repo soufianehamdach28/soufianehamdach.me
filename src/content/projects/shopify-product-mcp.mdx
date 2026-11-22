@@ -1,0 +1,28 @@
+## Overview
+
+**Shopify Product MCP** is an open-source Model Context Protocol (MCP) server paired with a Next.js web application. It enables AI assistants (like Claude, Cursor, and custom autonomous agents) and web users to search, browse, and filter public Shopify store product catalogs in real time.
+
+## The Challenge
+
+Connecting AI agents to e-commerce catalogs usually requires proprietary API keys or complex scraping pipelines that break frequently:
+
+- Creating a protocol-compliant MCP interface that exposes search and catalog exploration tools
+- Navigating and paginating public Shopify catalog endpoints (`/products.json`, `/collections.json`) securely
+- Implementing intelligent in-memory caching to avoid rate limits when handling large catalogs (up to 5,000 products)
+
+## The Solution
+
+Engineered an MCP server following the Anthropic Model Context Protocol specification, alongside a modern web interface. Users simply enter any public Shopify store URL (e.g. `allbirds.com`), and the server queries, normalizes, paginates, and caches the catalog, providing both human and AI consumers instant access.
+
+## Key Features
+
+- **Dual Access Modes** — Intuitive web interface for humans and standardized MCP stdio/HTTP server for AI agents.
+- **Deep Catalog Search** — Search products, filter by collections, and retrieve detailed variants, pricing, and availability.
+- **Smart 60s Cache** — In-memory caching layer optimizing response speed and protecting against target store rate limits.
+- **Zero-Config Web App** — Runs immediately in any browser without requiring merchant private API keys.
+
+## Technical Highlights
+
+- **Protocol**: Model Context Protocol (MCP), stdio & HTTP transports
+- **Frontend & Full Stack**: Next.js, React, TypeScript, Tailwind CSS
+- **API**: Public Shopify Storefront JSON Endpoints

@@ -1,0 +1,30 @@
+## Overview
+
+**SmartStudy-AI** is an AI-powered mobile study companion that transforms course materials into interactive learning tools. Users import course documents (PDF or TXT), and the app automatically generates summaries, flashcards, and adaptive quizzes with verifiable citations.
+
+## The Challenge
+
+Students and self-learners often struggle with dense academic texts, manual revision workflows, and hallucinated answers in generic AI chatbots:
+
+- Parsing multi-page unstructured PDF and TXT documents reliably on mobile devices
+- Orchestrating asynchronous background AI tasks (summarization, question generation) without blocking the client
+- Ensuring AI-generated answers provide verifiable source citations directly from the uploaded material
+
+## The Solution
+
+I architected a modular distributed system featuring a **React Native** mobile client, a **NestJS** backend API, and a **BullMQ + Redis** queue to process heavy AI workloads asynchronously. Source documents are stored in S3-compatible cloud storage, while PostgreSQL with Prisma ORM coordinates user decks, quizzes, and study progress.
+
+## Key Features
+
+- **Document Ingestion** — Upload lecture slides, chapters, or notes in PDF or TXT formats.
+- **Automated Study Decks** — Generates concise chapter summaries, key flashcards, and multiple-choice quizzes.
+- **Grounded Q&A** — Context-aware question answering with direct citations back to the source text.
+- **Progress Tracking** — Tracks review intervals and test scores to optimize spaced repetition.
+
+## Technical Highlights
+
+- **Mobile**: React Native CLI, TypeScript
+- **Backend**: NestJS, TypeScript, REST API
+- **Data & Queue**: PostgreSQL, Prisma ORM, BullMQ, Redis
+- **Storage**: S3-compatible Cloud Storage
+- **AI Integration**: Internal LlmClient supporting multi-provider LLM pipelines

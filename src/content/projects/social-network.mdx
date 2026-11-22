@@ -1,0 +1,28 @@
+## Overview
+
+**DevConnect** is a full-stack real-time social networking platform designed for modern web communication. It provides seamless social interactions, content sharing, and instant messaging with low-latency WebSockets.
+
+## The Challenge
+
+Building an interactive social platform requires managing high-concurrency real-time events, scalable data relationships, and responsive UI rendering:
+
+- Implementing bi-directional real-time communication for direct messaging and live notification feeds
+- Modeling complex relational data (users, friendships, posts, reactions, comments) efficiently
+- Guaranteeing consistent environments from development to production through containerization
+
+## The Solution
+
+I engineered a modular backend with **NestJS** leveraging WebSocket gateways and REST endpoints, backed by **PostgreSQL** and **Prisma ORM** for type-safe data access. The frontend is built with **Next.js** and **Tailwind CSS**, providing instant optimistic updates and responsive UI across all device sizes.
+
+## Key Features
+
+- **Real-Time Chat & Notifications** — Instant one-on-one and group messaging powered by WebSockets.
+- **Intelligent Activity Feed** — Chronological and activity-weighted post aggregation with instant reactions and comments.
+- **Type-Safe Data Layer** — Prisma ORM schema migrations and validation across models.
+- **Dockerized Architecture** — Fully containerized multi-container setup with Docker and Docker Compose.
+
+## Technical Highlights
+
+- **Backend**: NestJS, TypeScript, WebSockets, REST APIs, Prisma ORM, PostgreSQL
+- **Frontend**: Next.js, React, Tailwind CSS, Lucide Icons
+- **DevOps**: Docker, Docker Compose, Git
