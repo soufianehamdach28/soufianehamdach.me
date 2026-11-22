@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f8f9fa;
+  --foreground: #0A0A0A;
+  --muted: #525252;
+  --primary: #F97316;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-satoshi);
+  --font-exposure: var(--font-exposure);
+  --color-muted: var(--muted);
+  --color-primary: var(--primary);
+}
+
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --muted: #999999;
+  --primary: #F97316;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-satoshi), sans-serif;
+}
+
+/* Smooth theme transition */
+html {
+  transition: background-color 150ms ease-out;
+}
+
+body {
+  transition: background-color 150ms ease-out, color 150ms ease-out;
+}
+
+/* Transition colors on text/content elements only - exclude container divs to avoid flickering */
+p, h1, h2, h3, h4, h5, h6, span, a, button, li, label {
+  transition: color 150ms ease-out;
+}
+
+/* Don't transition divs that have motion animations (opacity/transform/filter) */
+div[style*="opacity"],
+div[style*="transform"],
+div[style*="filter"] {
+  transition: none;
+}
+
+/* SVG elements */
+svg {
+  transition: fill 150ms ease-out, stroke 150ms ease-out;
+}
+
+/* Hide scrollbar utility */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
