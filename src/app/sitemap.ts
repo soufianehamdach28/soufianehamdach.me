@@ -2,6 +2,8 @@ import type { MetadataRoute } from "next";
 import { projects } from "@/data/projects";
 import { playgroundItems } from "@/data/playground";
 
+export const dynamic = "force-static";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const projectUrls = projects.map((p) => ({
     url: `https://soufianehamdach.me/projects/${p.slug}`,
