@@ -217,18 +217,54 @@ const LightRays: React.FC<LightRaysProps> = ({
 
       if (!containerRef.current) return;
 
+        // 1. Verify WebGL support beforehand to avoid ogl executing console.error
+      try {
+        const testCanvas = document.createElement("canvas");
+        const hasContext = !!(
+          window.WebGLRenderingContext &&
+          (testCanvas.getContext("webgl2") ||
+            testCanvas.getContext("webgl") ||
+            testCanvas.getContext("experimental-webgl"))
+        );
+        const loseExt =
+          testCanvas.getContext("webgl2")?.getExtension("WEBGL_lose_context") ||
+          testCanvas.getContext("webgl")?.getExtension("WEBGL_lose_context");
+        loseExt?.loseContext();
+
+        if (!hasContext) {
+          return;
+        }
+      } catch {
+        return;
+      }
+
+      // 2. Intercept console.error during initialization in case ogl still logs internally
+      const originalConsoleError = console.error;
       let renderer: Renderer;
       try {
+        console.error = (...args: unknown[]) => {
+          if (
+            typeof args[0] === "string" &&
+            args[0].includes("unable to create webgl context")
+          ) {
+            return;
+          }
+          originalConsoleError.apply(console, args);
+        };
+
         renderer = new Renderer({
           dpr: Math.min(window.devicePixelRatio, 2),
           alpha: true,
         });
+
         if (!renderer.gl || !renderer.gl.canvas) {
           return;
         }
-      } catch (err) {
-        // Graceful fallback when WebGL context cannot be created (e.g. disabled hardware acceleration)
+      } catch {
+        // Graceful fallback when WebGL context cannot be created
         return;
+      } finally {
+        console.error = originalConsoleError;
       }
       rendererRef.current = renderer;
 
