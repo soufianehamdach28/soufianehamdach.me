@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "deploy": "next build && cd out && git init && git checkout -B gh-pages && git add -A && git commit -m 'deploy' && git remote add origin https://github.com/soufianehamdach28/soufianehamdach.me.git && git push origin gh-pages --force && rm -rf .git && cd .."
   },
   "dependencies": {
     "@vercel/analytics": "^1.6.1",
