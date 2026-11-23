@@ -1,0 +1,4 @@
+User-Agent: *
+Allow: /
+
+Sitemap: https://soufianehamdach.me/sitemap.xml
