@@ -1,3 +1,4 @@
+import EducationContainer from "@/components/education/container";
 import ExperienceContainer from "@/components/experience/container";
 import HeroSection from "@/components/hero-section";
 // import MusicCard from "@/components/music-card";
@@ -20,8 +21,11 @@ export default function Home() {
         <Reveal delay={0.4}>
           <ExperienceContainer />
         </Reveal>
+        <Reveal delay={0.45}>
+          <EducationContainer />
+        </Reveal>
         {/* Spotify / Music Card preserved and commented out (uncomment if you add Spotify API credentials) */}
-        {/* <Reveal delay={0.45}>
+        {/* <Reveal delay={0.5}>
           <MusicCard spotifyTopTrack />
         </Reveal> */}
       </div>

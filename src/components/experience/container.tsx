@@ -59,14 +59,6 @@ const experiences: Experience[] = [
     ),
     url: "https://www.linkedin.com/in/soufianehamdach/",
   },
-  {
-    role: "Specialized Technician in Digital Development (Full Stack Web)",
-    company: "ISTA Taza",
-    startDate: new Date("2021-09-01"),
-    endDate: new Date("2024-07-01"),
-    description: `Specialized higher training program in web and mobile full-stack software development. Covered frontend and backend frameworks (React, Node.js, Laravel), database design, Agile/Scrum collaboration, Clean Code, and UI/UX prototyping.`,
-    url: "https://www.linkedin.com/in/soufianehamdach/",
-  },
 ];
 
 const ExperienceContainer = () => {
