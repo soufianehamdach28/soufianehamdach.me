@@ -5,18 +5,6 @@ import { useState } from "react";
 
 const experiences: Experience[] = [
   {
-    role: "Full Stack Developer",
-    company: "Social Network Platform",
-    startDate: new Date("2025-03-01"),
-    endDate: new Date("2026-04-01"),
-    description: (
-      <>
-        Designed and developed a comprehensive full-stack social network platform. Built a high-performance backend with NestJS utilizing REST APIs and WebSockets for real-time messaging and notifications. Developed an intuitive Next.js frontend with Tailwind CSS, managed data flows with PostgreSQL and Prisma ORM, and containerized the architecture with Docker for seamless deployment.
-      </>
-    ),
-    url: "https://github.com/soufianehamdach28",
-  },
-  {
     role: "Web Support Specialist",
     company: "Web Services Support · Oujda",
     startDate: new Date("2025-12-01"),
