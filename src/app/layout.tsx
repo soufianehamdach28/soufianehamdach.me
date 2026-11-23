@@ -35,6 +35,7 @@ const exposure = localFont({
   ],
   variable: "--font-exposure",
   display: "swap",
+  preload: false,
 });
 
 export const metadata: Metadata = {
@@ -127,6 +128,7 @@ export default function RootLayout({
                 "@id": "https://soufianehamdach.me/#person",
                 name: "Soufiane Hamdach",
                 alternateName: ["Hamdach Soufiane", "Soufiane"],
+                image: "https://soufianehamdach.me/avatar.jpg",
                 url: "https://soufianehamdach.me",
                 jobTitle: "Full Stack Developer & Mobile Engineer",
                 email: "mailto:soufiane.hamdach28@gmail.com",
